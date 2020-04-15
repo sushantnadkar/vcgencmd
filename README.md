@@ -1,4 +1,4 @@
-# Python binding for Video Core General Command Service (vcgencmd)
+# Python binding for RaspberryPi vcgencmd command-line tool
 
 ## Summary
 
