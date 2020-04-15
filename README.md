@@ -23,11 +23,11 @@ sudo pip3 install setuptools
 ### Python package manager (PIP)
 Install globally:
 ```bash
-sudo pip3 install git+https://github.com/sushantnadkar/vcgencmd.git
+sudo pip3 install vcgencmd
 ```
 Install locally:
 ```bash
-pip3 install --user git+https://github.com/sushantnadkar/vcgencmd.git
+pip3 install --user vcgencmd
 ```
 
 ### Source installation
@@ -48,7 +48,7 @@ sudo pip3 uninstall vcgencmd
 ## Usage
 
 ```
-from vcgencmd import Vcgencmd
+from vcgencmd import vcgencmd
 
 
 vcgm = Vcgencmd()

@@ -10,7 +10,7 @@ with open("README.md", "r") as f:
 	long_description = f.read()
 
 setup(
-	name = "Vcgencmd",
+	name = "vcgencmd",
 	version = "0.1",
 	description = "Native Python binding for RaspberryPi vcgencmd command-line tool",
 	long_description = long_description,
