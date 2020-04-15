@@ -98,7 +98,13 @@ class Vcgencmd:
 
 	def otp_dump(self):
 		out = self.__verify_command("otp_dump", "", [""])
-		return str(out)
+		out = out.split("\n")
+		out = list(filter(None, out))
+		response = {}
+		for i in out:
+			j = i.split(":")
+			response[j[0].strip()] = j[1].strip()
+		return response
 
 	def get_mem(self, typ):
 		out = self.__verify_command("get_mem ", typ, self.sources.get("mem"))
@@ -188,23 +194,30 @@ class Vcgencmd:
 
 	def dispmanx_list(self):
 		out = self.__verify_command("dispmanx_list ", "", [""])
-		return str(out)
+		out = out.strip()
+		out = re.sub("(?<=\d)\s(?=\d)", " resolution:", out)
+		out = out.split(" ")
+		response = {}
+		for i in out:
+			j = i.split(":")
+			response[j[0].strip()] = j[1].strip()
+		return response
 
 	def display_power_on(self, display):
 		if display not in [0, 1, 2, 3, 7]:
 			raise Exception("{0} must be one of [0, 1, 2, 3, 7]")
-		out = self.__run_command("display_power 1 " + display)
+		out = self.__run_command("display_power 1 " + str(display))
 
 	def display_power_off(self, display):
 		if display not in [0, 1, 2, 3, 7]:
 			raise Exception("{0} must be one of [0, 1, 2, 3, 7]")
-		out = self.__run_command("display_power 0 " + display)
+		out = self.__run_command("display_power 0 " + str(display))
 
-	def display_power_status(self, display=0):
+	def display_power_state(self, display=0):
 		if display not in [0, 1, 2, 3, 7]:
 			raise Exception("{0} must be one of [0, 1, 2, 3, 7]")
-		out = self.__run_command("display_power -1 " + display)
-		if out.split("=")[0].strip() == "0":
+		out = self.__run_command("display_power -1 " + str(display))
+		if out.split("=")[1].strip() == "0":
 			return "off"
-		elif out.split("=")[0].strip() == "1":
+		elif out.split("=")[1].strip() == "1":
 			return "on"
