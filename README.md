@@ -57,7 +57,7 @@ print(output)
 
 ```
 
-## Commands 
+## Commands
 
 #### vcos_version()
 
@@ -121,7 +121,7 @@ This returns the current frequency of the specified clock in Hertz. The options 
 | isp   | Image Signal Processor |
 | v3d   | 3D block |
 | uart  | UART |
-| pwm   | PWM block (analogue audio output) | 
+| pwm   | PWM block (analogue audio output) |
 | emmc  | SD card interface |
 | pixel | Pixel valve |
 | vec | Analogue video encoder |
@@ -175,7 +175,7 @@ Return JSON object containing the curent speed, voltage and temperature of the r
 
 #### hdmi_timings()
 
-Returns the current HDMI settings timings, in JSON format. See [Video Config](https://www.raspberrypi.org/documentation/configuration/config-txt/video.md) for details of the values returned. 
+Returns the current HDMI settings timings, in JSON format. See [Video Config](https://www.raspberrypi.org/documentation/configuration/config-txt/video.md) for details of the values returned.
 
 #### dispmanx_list()
 
@@ -183,23 +183,23 @@ Returns a JSON object of all dispmanx items currently being displayed.
 
 #### display_power_on(display)
 
-Sets the display power state to *on* of the display whose ID is passed as the parameter. 
+Sets the display power state to *on* of the display whose ID is passed as the parameter.
 
 #### display_power_off(display)
 
-Sets the display power state to *off* of the display whose ID is passed as the parameter. 
+Sets the display power state to *off* of the display whose ID is passed as the parameter.
 
 #### display_power_state(display)
 
-Returns the display power state as *on* or *off* of the display whose ID is passed as the parameter. 
+Returns the display power state as *on* or *off* of the display whose ID is passed as the parameter.
 
 The display ID for the preceeding three methods are determined by the following table.
 
 | Display | ID |
-| --- | --- | 
+| --- | --- |
 |Main LCD       | 0 |
-|Secondary LCD  | 1 | 
+|Secondary LCD  | 1 |
 |HDMI 0         | 2 |
-|Composite      | 3 | 
+|Composite      | 3 |
 |HDMI 1         | 7 |
 
