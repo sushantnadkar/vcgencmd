@@ -17,7 +17,7 @@ setup(
 	long_description_content_type = "text/markdown",
 	author = "Sushant Nadkar",
 	license = "The MIT License (MIT)",
-	url = "https://github.com/sushantnadkar/vcgencmd",
+	url = "https://github.com/sushantnadkar/vcgencmd.git",
 	packages = setuptools.find_packages(),
 	scripts = [],
 	classifiers = [
