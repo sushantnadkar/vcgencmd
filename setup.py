@@ -1,6 +1,6 @@
 import sys
 try:
-	from setuptools import setup
+	from setuptools import setup, find_packages
 except:
 	print("please install setuptools using pip:")
 	print("    <pip> install setuptools")
@@ -18,10 +18,10 @@ setup(
 	author = "Sushant Nadkar",
 	license = "The MIT License (MIT)",
 	url = "https://github.com/sushantnadkar/vcgencmd.git",
-	packages = setuptools.find_packages(),
+	packages = find_packages(),
 	scripts = [],
 	classifiers = [
 		"Programming Language :: Python :: 3",
-		"License :: The MIT License (MIT)",
+		"License :: OSI Approved :: MIT License",
 	],
 )
