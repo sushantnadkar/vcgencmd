@@ -58,6 +58,12 @@ print(output)
 
 ## Commands
 
+#### get_sources(src)
+
+Returns list of all possible sources/arguments,  required for some of the methods listed below.
+
+Example: `get_sources("mem")` will return `["arm", "gpu"]` which are the sources/arguments for `get_mem(source)` that returns the memory of the source passed as argument to it.
+
 #### vcos_version()
 
 Returns a string with build date and version of the firmware on the VideoCore.
@@ -110,7 +116,7 @@ Returns the temperature of the SoC as measured by the on-board temperature senso
 
 #### measure_clock(clock)
 
-This returns the current frequency of the specified clock in Hertz. The options are:
+This returns the current frequency of the specified clock in Hertz. List of clock options can be retrieved by `get_sources("clock")`. The options are:
 
 | clock | Description |
 |:-----:|-------------|
@@ -129,7 +135,7 @@ This returns the current frequency of the specified clock in Hertz. The options 
 
 #### measure_volts(block)
 
-Returns the current voltage used by the specific block in volts.
+Returns the current voltage used by the specific block in volts. List of voltage sources can be retrieved by `get_sources("volts")`. The options are:
 
 | block | Description |
 |:-----:|-------------|
@@ -144,13 +150,18 @@ Returns the content of the One Time Programmable (OTP) memory, which is part of 
 
 #### get_mem(type)
 
-Returns the amount of memory allocated to the ARM cores `arm` and the VC4 `gpu`, in Megabytes.
+Returns the amount of memory allocated to the ARM cores and the VC4, in Megabytes. List of memory type options can be retrieved by `get_sources("mem")`. The options are:
+
+| type | Description |
+|:-----:|-------------|
+| arm | ARM core |
+| gpu | VC4 |
 
 **Note:** On a Raspberry Pi 4 with greater than 1GB of RAM, the `arm` option is inaccurate. This is because the GPU firmware which implements this command is only aware of the first gigabyte of RAM on the system, so the `arm` setting will always return 1GB minus the `gpu` memory value. To get an accurate report of the amount of ARM memory, use one of the standard Linux commands, such as `free` or `cat /proc/meminfo`
 
 #### codec_enabled(type)
 
-Returns whether the specified CODEC type is enabled, in boolean type. Possible options for type are AGIF, FLAC, H263, H264, MJPA, MJPB, MJPG, **MPG2**, MPG4, MVC0, PCM, THRA, VORB, VP6, VP8, **WMV9**, **WVC1**. Those highlighted currently require a paid for licence (see the [FAQ](https://www.raspberrypi.org/documentation/faqs/README.md#pi-video) for more info), except on the Pi4, where these hardware codecs are disabled in preference to software decoding, which requires no licence. Note that because the H265 HW block on the Raspberry Pi4 is not part of the Videocore GPU, its status is not accessed via this command.
+Returns whether the specified CODEC type is enabled, in boolean type. Possible options for type are AGIF, FLAC, H263, H264, MJPA, MJPB, MJPG, **MPG2**, MPG4, MVC0, PCM, THRA, VORB, VP6, VP8, **WMV9**, **WVC1**. This list can be retrieved by `get_sources("codec")`. Those highlighted currently require a paid for licence (see the [FAQ](https://www.raspberrypi.org/documentation/faqs/README.md#pi-video) for more info), except on the Pi4, where these hardware codecs are disabled in preference to software decoding, which requires no licence. Note that because the H265 HW block on the Raspberry Pi4 is not part of the Videocore GPU, its status is not accessed via this command.
 
 #### get_config(type | name)
 
@@ -192,7 +203,7 @@ Sets the display power state to *off* of the display whose ID is passed as the p
 
 Returns the display power state as *on* or *off* of the display whose ID is passed as the parameter.
 
-The display ID for the preceeding three methods are determined by the following table.
+The display ID for the preceding three methods are determined by the following table.
 
 | Display | ID |
 | --- | --- |
@@ -201,4 +212,3 @@ The display ID for the preceeding three methods are determined by the following 
 |HDMI 0         | 2 |
 |Composite      | 3 |
 |HDMI 1         | 7 |
-
