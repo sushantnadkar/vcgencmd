@@ -48,8 +48,7 @@ sudo pip3 uninstall vcgencmd
 ## Usage
 
 ```
-from vcgencmd import vcgencmd
-
+from vcgencmd import Vcgencmd
 
 vcgm = Vcgencmd()
 output = vcgm.version()
@@ -63,7 +62,7 @@ print(output)
 
 Returns a string with build date and version of the firmware on the VideoCore.
 
-#### Vcos_log_status()
+#### vcos_log_status()
 
 Returns the error log status of the various VideoCore software areas in JSON format.
 
