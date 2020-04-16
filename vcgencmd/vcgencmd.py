@@ -3,16 +3,12 @@ import shlex
 import re
 
 class Vcgencmd:
-	sources = {
+	__sources = {
 		"clock": ["arm", "core","H264", "isp", "v3d", "uart", "pwm", "emmc", "pixel", "vec", "hdmi", "dpi"],
 		"volts": ["core", "sdram_c", "sdram_i", "sdram_p"],
 		"mem": ["arm", "gpu"],
-		"codec": ["agif", "flac", "h263", "h264", "mjpa", "mjpb", "mjpg", "mpg2", "mpg4", "mvc0", "pcm", "thra", "vorb", "vp6", "vp8", "wmv9", "wvc1"]
-
-	}
-	valid_args = {
-		"state": [0, 1, -1],
-		"display": [0, 1, 2, 3, 7]
+		"codec": ["agif", "flac", "h263", "h264", "mjpa", "mjpb", "mjpg", "mpg2", "mpg4", "mvc0", "pcm", "thra", "vorb", "vp6", "vp8", "wmv9", "wvc1"],
+		"display_id": [0, 1, 2, 3, 7]
 	}
 
 	def __run_command(self, cmd):
@@ -31,9 +27,9 @@ class Vcgencmd:
 		return self.__run_command(cmd + source)
 
 	def get_sources(self, typ):
-		if typ not in self.sources.keys():
-			raise Exception("Invalid source type.\n{0} must be one of {1}.format(typ, self.sources.keys)")
-		return self.sources.get(typ)
+		if typ not in self.__sources.keys():
+			raise Exception("Invalid source type.\n{0} must be one of {1}".format(typ, self.__sources.keys))
+		return self.__sources.get(typ)
 
 	def vcos_version(self):
 		out = self.self.__verify_command("vcos version", "", [""])
@@ -88,12 +84,12 @@ class Vcgencmd:
 		return float(re.sub("[^\d\.]", "",out))
 
 	def measure_clock(self, clock):
-		out = self.__verify_command("measure_clock ", clock, self.sources.get("clock"))
+		out = self.__verify_command("measure_clock ", clock, self.__sources.get("clock"))
 		out = out.split("=")[1]
 		return int(out)
 
 	def measure_volts(self, block):
-		out = self.__verify_command("measure_volts ", block, self.sources.get("volts"))
+		out = self.__verify_command("measure_volts ", block, self.__sources.get("volts"))
 		return float(re.sub("[^\d\.]", "", out))
 
 	def otp_dump(self):
@@ -107,11 +103,11 @@ class Vcgencmd:
 		return response
 
 	def get_mem(self, typ):
-		out = self.__verify_command("get_mem ", typ, self.sources.get("mem"))
+		out = self.__verify_command("get_mem ", typ, self.__sources.get("mem"))
 		return int(re.sub("[^\d]", "", out))
 
 	def codec_enabled(self, typ):
-		out = self.__verify_command("codec_enabled ", typ, self.sources.get("codec"))
+		out = self.__verify_command("codec_enabled ", typ, self.__sources.get("codec"))
 		out = out.split("=")[1]
 		if out.strip() == "disabled":
 			return False
@@ -204,18 +200,18 @@ class Vcgencmd:
 		return response
 
 	def display_power_on(self, display):
-		if display not in [0, 1, 2, 3, 7]:
-			raise Exception("{0} must be one of [0, 1, 2, 3, 7]")
+		if display not in self.__sources["display_id"]:
+			raise Exception("{0} must be one of {1}".format(diaplay, self.__sources["display_id"]))
 		out = self.__run_command("display_power 1 " + str(display))
 
 	def display_power_off(self, display):
-		if display not in [0, 1, 2, 3, 7]:
-			raise Exception("{0} must be one of [0, 1, 2, 3, 7]")
+		if display not in self.__sources["display_id"]:
+			raise Exception("{0} must be one of {1}".format(diaplay, self.__sources["display_id"]))
 		out = self.__run_command("display_power 0 " + str(display))
 
 	def display_power_state(self, display=0):
-		if display not in [0, 1, 2, 3, 7]:
-			raise Exception("{0} must be one of [0, 1, 2, 3, 7]")
+		if display not in self.__sources["display_id"]:
+			raise Exception("{0} must be one of {1}".format(diaplay, self.__sources["display_id"]))
 		out = self.__run_command("display_power -1 " + str(display))
 		if out.split("=")[1].strip() == "0":
 			return "off"
