@@ -11,7 +11,7 @@ with open("README.md", "r") as f:
 
 setup(
 	name = "vcgencmd",
-	version = "0.1.0",
+	version = "0.1.1",
 	description = "Python binding for RaspberryPi vcgencmd command-line tool",
 	long_description = long_description,
 	long_description_content_type = "text/markdown",
