@@ -4,7 +4,7 @@ import re
 
 class Vcgencmd:
 	__sources = {
-		"clock": ["arm", "core","H264", "isp", "v3d", "uart", "pwm", "emmc", "pixel", "vec", "hdmi", "dpi"],
+		"clock": ["arm", "core","h264", "isp", "v3d", "uart", "pwm", "emmc", "pixel", "vec", "hdmi", "dpi"],
 		"volts": ["core", "sdram_c", "sdram_i", "sdram_p"],
 		"mem": ["arm", "gpu"],
 		"codec": ["agif", "flac", "h263", "h264", "mjpa", "mjpb", "mjpg", "mpg2", "mpg4", "mvc0", "pcm", "thra", "vorb", "vp6", "vp8", "wmv9", "wvc1"],
@@ -32,7 +32,7 @@ class Vcgencmd:
 		return self.__sources.get(typ)
 
 	def vcos_version(self):
-		out = self.self.__verify_command("vcos version", "", [""])
+		out = self.__verify_command("vcos version", "", [""])
 		return str(out)
 
 	def vcos_log_status(self):
@@ -78,6 +78,26 @@ class Vcgencmd:
 		response["breakdown"]["18"] = state(binary_val[0:4][1])
 		response["breakdown"]["19"] = state(binary_val[0:4][0])
 		return response
+
+	def get_throttled_flags(self):
+		bits = self.get_throttled()['breakdown']
+
+		mapping = {
+			"0": "Under-voltage detected",
+			"1": "Arm frequency capped",
+			"2": "Currently throttled",
+			"3": "Soft temperature limit active",
+			"16": "Under-voltage has occurred",
+			"17": "Arm frequency capping has occurred",
+			"18": "Throttling has occurred",
+			"19": "Soft temperature limit has occurred"
+		}
+
+		desc = {}
+		for bit, value in bits.items():
+			desc[mapping[bit]] = value
+		
+		return desc
 
 	def measure_temp(self):
 		out = self.__verify_command("measure_temp", "", [""])
