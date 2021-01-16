@@ -1,10 +1,9 @@
-from .vcgencmd import Vcgencmd
+from .vcgencmd import print_overview
 import sys
 
 
 def main():
-	out = Vcgencmd().version()
-	print(out)
+	print_overview()
 
 if __name__ == "__main__":
 	sys.exit(main())

@@ -56,6 +56,59 @@ print(output)
 
 ```
 
+## Overview Output
+See status from all fields on the command line.
+
+```text
+$ sudo python3 -m vcgencmd
+Binary Version
+Nov 30 2020 22:12:08 
+Copyright (c) 2012 Broadcom
+version ab1181cc0cb6df52bfae3b1d3fef0ce7c325166c (clean) (release) (start)
+
+
+Clock Frequencies (Hz)
+arm                                 : 1500398464
+core                                : 500000992
+h264                                : 0
+isp                                 : 0
+v3d                                 : 500000992
+uart                                : 48001464
+pwm                                 : 0
+emmc                                : 250000496
+pixel                               : 75001464
+vec                                 : 0
+hdmi                                : 0
+dpi                                 : 0
+
+Voltages (V)
+core                                : 0.8375
+sdram_c                             : 1.1
+sdram_i                             : 1.1
+sdram_p                             : 1.1
+
+Memory (MB) (Not accurate on rpi4)
+arm                                 : 948
+gpu                                 : 76
+
+Temperatures (C)
+core                                : 75.9
+
+Video Core Log Status
+mmal                                : opaque
+gencmd_file                         : info
+wdog                                : warn
+
+<snip many lines>
+
+Display Status
+display 0                           : off
+display 1                           : off
+display 2                           : off
+display 3                           : off
+display 7                           : off
+```
+
 ## Commands
 
 #### get_sources(src)
@@ -82,7 +135,7 @@ Returns the enabled and detected state of the official camera in JSON format. 1 
 
 #### get_throttled()
 
-Returns the throttled state of the system in JSON format. This is a bit pattern - a bit being set indicates the following meanings:
+Returns the throttled state of the system in dictionaries (similar to JSON format). This is a bit pattern - a bit being set indicates the following meanings:
 
 | Bit | Meaning |
 |:---:|---------|
@@ -109,6 +162,22 @@ Adding the bit numbers along the top we get:
 ```
 
 From this we can see that bits 18 and 16 are set, indicating that the Pi has previously been throttled due to under-voltage, but is not currently throttled for any reason.
+
+#### get_throttled_flags()
+
+Returns a dictionary of the same results as `get_throttled()` but with the descriptive names as the keys.
+
+```python
+>>> pprint.pp(out.get_throttled_flags())
+{'Under-voltage detected': False,
+ 'Arm frequency capped': False,
+ 'Currently throttled': False,
+ 'Soft temperature limit active': False,
+ 'Under-voltage has occurred': False,
+ 'Arm frequency capping has occurred': True,
+ 'Throttling has occurred': False,
+ 'Soft temperature limit has occurred': False}
+```
 
 #### measure_temp()
 
