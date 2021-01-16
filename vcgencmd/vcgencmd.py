@@ -32,7 +32,7 @@ class Vcgencmd:
 		return self.__sources.get(typ)
 
 	def vcos_version(self):
-		out = self.self.__verify_command("vcos version", "", [""])
+		out = self.__verify_command("vcos version", "", [""])
 		return str(out)
 
 	def vcos_log_status(self):
