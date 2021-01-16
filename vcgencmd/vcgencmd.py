@@ -4,7 +4,7 @@ import re
 
 class Vcgencmd:
 	__sources = {
-		"clock": ["arm", "core","H264", "isp", "v3d", "uart", "pwm", "emmc", "pixel", "vec", "hdmi", "dpi"],
+		"clock": ["arm", "core","h264", "isp", "v3d", "uart", "pwm", "emmc", "pixel", "vec", "hdmi", "dpi"],
 		"volts": ["core", "sdram_c", "sdram_i", "sdram_p"],
 		"mem": ["arm", "gpu"],
 		"codec": ["agif", "flac", "h263", "h264", "mjpa", "mjpb", "mjpg", "mpg2", "mpg4", "mvc0", "pcm", "thra", "vorb", "vp6", "vp8", "wmv9", "wvc1"],
