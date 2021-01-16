@@ -79,6 +79,26 @@ class Vcgencmd:
 		response["breakdown"]["19"] = state(binary_val[0:4][0])
 		return response
 
+	def get_throttled_flags(self):
+		bits = self.get_throttled()['breakdown']
+
+		mapping = {
+			"0": "Under-voltage detected",
+			"1": "Arm frequency capped",
+			"2": "Currently throttled",
+			"3": "Soft temperature limit active",
+			"16": "Under-voltage has occurred",
+			"17": "Arm frequency capping has occurred",
+			"18": "Throttling has occurred",
+			"19": "Soft temperature limit has occurred"
+		}
+
+		desc = {}
+		for bit, value in bits.items():
+			desc[mapping[bit]] = value
+		
+		return desc
+
 	def measure_temp(self):
 		out = self.__verify_command("measure_temp", "", [""])
 		return float(re.sub("[^\d\.]", "",out))

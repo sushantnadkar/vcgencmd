@@ -82,7 +82,7 @@ Returns the enabled and detected state of the official camera in JSON format. 1 
 
 #### get_throttled()
 
-Returns the throttled state of the system in JSON format. This is a bit pattern - a bit being set indicates the following meanings:
+Returns the throttled state of the system in dictionaries (similar to JSON format). This is a bit pattern - a bit being set indicates the following meanings:
 
 | Bit | Meaning |
 |:---:|---------|
@@ -109,6 +109,22 @@ Adding the bit numbers along the top we get:
 ```
 
 From this we can see that bits 18 and 16 are set, indicating that the Pi has previously been throttled due to under-voltage, but is not currently throttled for any reason.
+
+#### get_throttled_flags()
+
+Returns a dictionary of the same results as `get_throttled()` but with the descriptive names as the keys.
+
+```python
+>>> pprint.pp(out.get_throttled_flags())
+{'Under-voltage detected': False,
+ 'Arm frequency capped': False,
+ 'Currently throttled': False,
+ 'Soft temperature limit active': False,
+ 'Under-voltage has occurred': False,
+ 'Arm frequency capping has occurred': True,
+ 'Throttling has occurred': False,
+ 'Soft temperature limit has occurred': False}
+```
 
 #### measure_temp()
 
