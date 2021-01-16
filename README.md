@@ -56,6 +56,59 @@ print(output)
 
 ```
 
+## Overview Output
+See status from all fields on the command line.
+
+```text
+$ sudo python3 -m vcgencmd
+Binary Version
+Nov 30 2020 22:12:08 
+Copyright (c) 2012 Broadcom
+version ab1181cc0cb6df52bfae3b1d3fef0ce7c325166c (clean) (release) (start)
+
+
+Clock Frequencies (Hz)
+arm                                 : 1500398464
+core                                : 500000992
+h264                                : 0
+isp                                 : 0
+v3d                                 : 500000992
+uart                                : 48001464
+pwm                                 : 0
+emmc                                : 250000496
+pixel                               : 75001464
+vec                                 : 0
+hdmi                                : 0
+dpi                                 : 0
+
+Voltages (V)
+core                                : 0.8375
+sdram_c                             : 1.1
+sdram_i                             : 1.1
+sdram_p                             : 1.1
+
+Memory (MB) (Not accurate on rpi4)
+arm                                 : 948
+gpu                                 : 76
+
+Temperatures (C)
+core                                : 75.9
+
+Video Core Log Status
+mmal                                : opaque
+gencmd_file                         : info
+wdog                                : warn
+
+<snip many lines>
+
+Display Status
+display 0                           : off
+display 1                           : off
+display 2                           : off
+display 3                           : off
+display 7                           : off
+```
+
 ## Commands
 
 #### get_sources(src)

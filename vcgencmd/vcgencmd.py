@@ -237,3 +237,77 @@ class Vcgencmd:
 			return "off"
 		elif out.split("=")[1].strip() == "1":
 			return "on"
+
+def _print_dict(input_dict):
+	mm_fmt = "{:35s} : {}"
+	for key, val in input_dict.items():
+		print(mm_fmt.format(key, val))
+
+def print_overview():
+	mm_fmt = "{:35s} : {}"
+
+	stats = Vcgencmd()
+	print("Binary Version")
+	print(stats.version())
+
+	print("\nClock Frequencies (Hz)")
+	for clock in stats.get_sources("clock"):
+		val = stats.measure_clock(clock)
+		print(mm_fmt.format(clock, val))
+		
+	print("\nVoltages (V)")
+	for volt in stats.get_sources("volts"):
+		val = stats.measure_volts(volt)
+		print(mm_fmt.format(volt, val))
+		
+	print("\nMemory (MB) (Not accurate on rpi4)")
+	for mem in stats.get_sources("mem"):
+		val = stats.get_mem(mem)
+		print(mm_fmt.format(mem, val))
+
+	print("\nTemperatures (C)")
+	val = stats.measure_temp()
+	print(mm_fmt.format("core", val))
+
+	print("\nVideo Core Log Status")
+	_print_dict(stats.vcos_log_status())
+
+	print("\nCamera")
+	status = stats.get_camera()
+	print(mm_fmt.format("supported", status["supported"]))
+	print(mm_fmt.format("detected", status["detected"]))
+
+	print("\nThrottling")
+	_print_dict(stats.get_throttled_flags())
+
+	print("\nOne Time Programmable Memory")
+	_print_dict(stats.otp_dump())
+
+	print("\nCodecs Enabled")
+	for codec in stats.get_sources("codec"):
+		val = stats.codec_enabled(codec)
+		print(mm_fmt.format(codec, val))
+
+	print("\nBoot Config Values (config.txt effective values)")
+	_print_dict(stats.get_config("str"))
+	_print_dict(stats.get_config("int"))
+
+	print("\nLCD (px)")
+	_print_dict(stats.get_lcd_info())
+
+	print("\nstats Of Memory Events")
+	_print_dict(stats.mem_oom())
+
+	print("\nRelocatable Memory")
+	_print_dict(stats.mem_reloc_stats())
+
+	print("\nRing Oscillator")
+	_print_dict(stats.read_ring_osc())
+
+	print("\nHDMI Timings")
+	_print_dict(stats.hdmi_timings()["breakdown"])
+
+	print("\nDisplay Status")
+	for disp in stats.get_sources("display_id"):
+		val = stats.display_power_state(disp)
+		print(mm_fmt.format("display " + str(disp), val))
