@@ -41,7 +41,7 @@ class Vcgencmd:
 		out = list(filter(None, out))
 		response = {}
 		for i in out:
-			j = i.split("-")
+			j = i.split(" - ")
 			response[j[0].strip()] = j[1].strip()
 		return response
 

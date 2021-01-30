@@ -56,14 +56,11 @@ class TestCommands(unittest.TestCase):
         self.call_arguments(['vcos', 'version'])
 
     def test_vcos_log_status(self):
-        # TODO: This is failing because of a bug in the code! The split on `-`
-        # is causing problems with `mmal-opaque`
         expected = {
-            #"mmal": "error",
-            "mmal": "opaque",
+            "mmal": "error",
             "gencmd_file": "info",
             "wdog": "warn",
-            #"mmal-opaque": "error",
+            "mmal-opaque": "error",
             "mmalsrv": "error",
             "gpus": "warn",
             "vchiq_test": "info",
