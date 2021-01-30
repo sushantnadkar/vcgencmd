@@ -401,9 +401,8 @@ class TestCommands(unittest.TestCase):
         self.call_arguments(['hdmi_timings'])
 
     def test_dispmanx_list(self):
-        #TODO: Doesn't correctly handle empty output, which is possible
         expected = {}
-        #self.assertDictEqual(expected, self.obj.dispmanx_list())
+        self.assertDictEqual(expected, self.obj.dispmanx_list())
 
     def test_dispmanx_list_values(self):
         #TODO: Need example data for this added
