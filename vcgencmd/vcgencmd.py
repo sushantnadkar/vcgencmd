@@ -209,11 +209,14 @@ class Vcgencmd:
 		return response
 
 	def dispmanx_list(self):
+		response = {}
 		out = self.__verify_command("dispmanx_list ", "", [""])
+		if not out:
+			return response
+			
 		out = out.strip()
 		out = re.sub("(?<=\d)\s(?=\d)", " resolution:", out)
 		out = out.split(" ")
-		response = {}
 		for i in out:
 			j = i.split(":")
 			response[j[0].strip()] = j[1].strip()
