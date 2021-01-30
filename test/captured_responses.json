@@ -1,0 +1,238 @@
+{
+  "vcos version": {
+    "stdout": "Nov 30 2020 22:13:46\nCopyright (c) 2011 Broadcom\nversion ab1181cc0cb6df52bfae3b1d3fef0ce7c325166c (clean)\nhost buildbot\n",
+    "stderr": ""
+  },
+  "vcos log status": {
+    "stdout": "mmal             - error\ngencmd_file      - info\nwdog             - warn\nmmal-opaque      - error\nmmalsrv          - error\ngpus             - warn\nvchiq_test       - info\naudioserv        - warn\nsmct             - error\nsmservice        - error\nvchiq_vc         - error\nvchiq_sync       - warn\nvchiq_srvtrace   - trace\nvchiq_core_msg   - warn\nvchiq_core       - warn\npixelvalve       - warn\nvec              - trace\narm_loader       - info\ndispmanx         - warn\nhdmi             - warn\nhvs              - warn\nscalerlib        - warn\ncam_alloc        - warn\nplat_conf        - warn\nconfzilla_fe_fdt - warn\nconfzilla_be     - warn\ngpioman          - warn\nboard            - warn\nbrfs             - info\nvcos_cmd         - info\ndefault          - error\nvc_suspend       - warn\nclock            - warn\ncamsubs          - warn\narasan           - info\n",
+    "stderr": ""
+  },
+  "version": {
+    "stdout": "Nov 30 2020 22:13:46 \nCopyright (c) 2012 Broadcom\nversion ab1181cc0cb6df52bfae3b1d3fef0ce7c325166c (clean) (release) (start)\n",
+    "stderr": ""
+  },
+  "get_camera": {
+    "stdout": "supported=0 detected=0\n",
+    "stderr": ""
+  },
+  "get_throttled": {
+    "stdout": "throttled=0x50000\n",
+    "stderr": ""
+  },
+  "measure_temp": {
+    "stdout": "temp=47.2'C\n",
+    "stderr": ""
+  },
+  "measure_clock arm": {
+    "stdout": "frequency(48)=1200000000\n",
+    "stderr": ""
+  },
+  "measure_clock core": {
+    "stdout": "frequency(1)=400000000\n",
+    "stderr": ""
+  },
+  "measure_clock h264": {
+    "stdout": "frequency(28)=0\n",
+    "stderr": ""
+  },
+  "measure_clock H264": {
+    "stdout": "frequency(0)=0\n",
+    "stderr": ""
+  },
+  "measure_clock isp": {
+    "stdout": "frequency(45)=0\n",
+    "stderr": ""
+  },
+  "measure_clock v3d": {
+    "stdout": "frequency(46)=300000000\n",
+    "stderr": ""
+  },
+  "measure_clock uart": {
+    "stdout": "frequency(22)=48000000\n",
+    "stderr": ""
+  },
+  "measure_clock pwm": {
+    "stdout": "frequency(25)=0\n",
+    "stderr": ""
+  },
+  "measure_clock emmc": {
+    "stdout": "frequency(50)=200000000\n",
+    "stderr": ""
+  },
+  "measure_clock pixel": {
+    "stdout": "frequency(29)=0\n",
+    "stderr": ""
+  },
+  "measure_clock vec": {
+    "stdout": "frequency(10)=108000000\n",
+    "stderr": ""
+  },
+  "measure_clock hdmi": {
+    "stdout": "frequency(0)=0\n",
+    "stderr": ""
+  },
+  "measure_clock dpi": {
+    "stdout": "frequency(4)=0\n",
+    "stderr": ""
+  },
+  "measure_volts core": {
+    "stdout": "volt=1.3125V\n",
+    "stderr": ""
+  },
+  "measure_volts sdram_c": {
+    "stdout": "volt=1.2000V\n",
+    "stderr": ""
+  },
+  "measure_volts sdram_i": {
+    "stdout": "volt=1.2000V\n",
+    "stderr": ""
+  },
+  "measure_volts sdram_p": {
+    "stdout": "volt=1.2250V\n",
+    "stderr": ""
+  },
+  "otp_dump": {
+    "stdout": "08:00000000\n09:00000000\n10:00000000\n11:00000000\n12:00000000\n13:00000000\n14:00000000\n15:00000000\n16:00280000\n17:1020000a\n18:1020000a\n19:ffffffff\n20:ffffffff\n21:ffffffff\n22:ffffffff\n23:ffffffff\n24:ffffffff\n25:ffffffff\n26:ffffffff\n27:00002727\n28:53bfb541\n29:ac404abe\n30:00a02082\n31:00000000\n32:00000000\n33:00000000\n34:00000000\n35:00000000\n36:00000000\n37:00000000\n38:00000000\n39:00000000\n40:00000000\n41:00000000\n42:00000000\n43:00000000\n44:00000000\n45:00000000\n46:00000000\n47:00000000\n48:00000000\n49:00000000\n50:00000000\n51:00000000\n52:00000000\n53:00000000\n54:00000000\n55:00000000\n56:00000000\n57:00000000\n58:00000000\n59:00000000\n60:00000000\n61:00000000\n62:00000000\n63:00000000\n64:00000000\n65:00000000\n66:00000000\n",
+    "stderr": ""
+  },
+  "get_mem arm": {
+    "stdout": "arm=948M\n",
+    "stderr": ""
+  },
+  "get_mem gpu": {
+    "stdout": "gpu=76M\n",
+    "stderr": ""
+  },
+  "codec_enabled agif": {
+    "stdout": "agif=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled flac": {
+    "stdout": "flac=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled h263": {
+    "stdout": "h263=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled h264": {
+    "stdout": "h264=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled mjpa": {
+    "stdout": "mjpa=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled mjpb": {
+    "stdout": "mjpb=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled mjpg": {
+    "stdout": "mjpg=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled mpg2": {
+    "stdout": "mpg2=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled mpg4": {
+    "stdout": "mpg4=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled mvc0": {
+    "stdout": "mvc0=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled pcm": {
+    "stdout": "pcm=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled thra": {
+    "stdout": "thra=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled vorb": {
+    "stdout": "vorb=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled vp6": {
+    "stdout": "vp6=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled vp8": {
+    "stdout": "vp8=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled wmv9": {
+    "stdout": "wmv9=disabled\n",
+    "stderr": ""
+  },
+  "codec_enabled wvc1": {
+    "stdout": "wvc1=disabled\n",
+    "stderr": ""
+  },
+  "get_config int": {
+    "stdout": "aphy_params_current=819\narm_freq=1200\narm_freq_min=600\naudio_pwm_mode=514\nconfig_hdmi_boost=5\ncore_freq=400\ndesired_osc_freq=0x387520\ndisable_commandline_tags=2\ndisable_l2cache=1\ndisplay_hdmi_rotate=-1\ndisplay_lcd_rotate=-1\ndphy_params_current=547\nenable_tvout=1\nforce_eeprom_read=1\nforce_pwm_open=1\nframebuffer_ignore_alpha=1\nframebuffer_swap=1\ngpu_freq=300\ninit_uart_clock=0x2dc6c00\nlcd_framerate=60\nover_voltage_avs=0x1b774\npause_burst_frames=1\nprogram_serial_random=1\nsdram_freq=450\ntotal_mem=1024\nhdmi_force_cec_address:0=65535\nhdmi_force_cec_address:1=65535\nhdmi_pixel_freq_limit:0=0x9a7ec80\n",
+    "stderr": ""
+  },
+  "get_config str": {
+    "stdout": "device_tree=-\noverlay_prefix=overlays/\nhdmi_cvt:0=\nhdmi_cvt:1=\nhdmi_edid_filename:0=\nhdmi_edid_filename:1=\nhdmi_timings:0=\nhdmi_timings:1=\n",
+    "stderr": ""
+  },
+  "get_config arm_freq": {
+    "stdout": "arm_freq=1200\n",
+    "stderr": ""
+  },
+  "get_lcd_info": {
+    "stdout": "720 480 24\n",
+    "stderr": ""
+  },
+  "mem_oom": {
+    "stdout": "oom events: 0\nlifetime oom required: 0 Mbytes\ntotal time in oom handler: 0 ms\nmax time spent in oom handler: 0 ms\n",
+    "stderr": ""
+  },
+  "mem_reloc_stats": {
+    "stdout": "alloc failures:     0\ncompactions:        0\nlegacy block fails: 0\n",
+    "stderr": ""
+  },
+  "read_ring_osc": {
+    "stdout": "read_ring_osc(2)=3.510MHz (@1.3125V) (47.2'C)\n",
+    "stderr": ""
+  },
+  "hdmi_timings": {
+    "stdout": "hdmi_timings=0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0\n",
+    "stderr": ""
+  },
+  "dispmanx_list": {
+    "stdout": "",
+    "stderr": ""
+  },
+  "display_power -1 0": {
+    "stdout": "display_power=0\n",
+    "stderr": ""
+  },
+  "display_power -1 1": {
+    "stdout": "display_power=0\n",
+    "stderr": ""
+  },
+  "display_power -1 2": {
+    "stdout": "display_power=0\n",
+    "stderr": ""
+  },
+  "display_power -1 3": {
+    "stdout": "display_power=1\n",
+    "stderr": ""
+  },
+  "display_power -1 7": {
+    "stdout": "display_power=0\n",
+    "stderr": ""
+  },
+  "display_power 0 0": {
+    "stdout": "display_power=0\n",
+    "stderr": ""
+  },
+  "display_power 1 0": {
+    "stdout": "display_power=0\n",
+    "stderr": ""
+  }
+}
