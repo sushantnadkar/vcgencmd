@@ -335,9 +335,8 @@ class TestCommands(unittest.TestCase):
         self.call_arguments(['get_config', 'arm_freq'])
 
     def test_get_lcd_info(self):
-        # TODO: Fails with output from some instances of vcgencmd
         expected = {"height": "720", "width": "480", "depth": "24"}
-        #self.assertEqual(expected, self.obj.get_lcd_info())
+        self.assertEqual(expected, self.obj.get_lcd_info())
 
     @mock.patch("subprocess.check_output")
     def test_get_lcd_info_old(self, mock_co_replaced):

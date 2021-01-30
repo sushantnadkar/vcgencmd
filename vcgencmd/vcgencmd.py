@@ -146,7 +146,7 @@ class Vcgencmd:
 
 	def get_lcd_info(self):
 		out = self.__verify_command("get_lcd_info ", "", [""])
-		out = out.split(" ")
+		out = out.split()
 		response = {"height": out[0], "width": out[1], "depth": out[2]}
 		return response
 
