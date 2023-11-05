@@ -52,11 +52,15 @@ class Vcgencmd:
 
 	def get_camera(self):
 		out = self.__verify_command("get_camera", "", [""])
+		out = out.replace("libcamera interfaces","libcamera_interfaces")
 		out = out.split(" ")
 		out = list(filter(None, out))
 		response = {}
 		for i in out:
 			j = i.split("=")
+			if len(j)<2:
+				response[j[0].strip()] = None
+				continue
 			response[j[0].strip()] = j[1].strip()
 		return response
 
